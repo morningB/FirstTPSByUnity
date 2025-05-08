@@ -18,7 +18,7 @@ public class PlayerAttack : MonoBehaviour
         RaycastHit hit;
 
         timer = 0;
-        
+        GetComponent<AudioSource>().PlayOneShot(clipGunShot);
 
         if(Physics.Raycast(ray,out hit, 100, LayerMask.GetMask("Shootable")))
         {
@@ -26,19 +26,19 @@ public class PlayerAttack : MonoBehaviour
             if(e != null)
             {
                 e.Damage(50);
-                Score.score += 10;
+                Score.score += 5;
             }
 
-                line.enabled = true;
-                line.SetPosition(0, shootPoint.position);
-                line.SetPosition(1,hit.point);
+            line.enabled = true;
+            line.SetPosition(0, shootPoint.position);
+            line.SetPosition(1,hit.point);
         }
         else
-            {
-                line.enabled = true;
-                line.SetPosition(0, shootPoint.position);
-                line.SetPosition(1,shootPoint.position + ray.direction * 100);
-            }
+        {
+            line.enabled = true;
+            line.SetPosition(0, shootPoint.position);
+            line.SetPosition(1,shootPoint.position + ray.direction * 100);
+        }
     }
     // Update is called once per frame
     void Update()
@@ -50,7 +50,7 @@ public class PlayerAttack : MonoBehaviour
             if(timer > 0.05f)
             {
                 line.enabled =false;
-                GetComponent<AudioSource>().PlayOneShot(clipGunShot);
+                
                 GetComponent<Light>().enabled = true;
             }
         }

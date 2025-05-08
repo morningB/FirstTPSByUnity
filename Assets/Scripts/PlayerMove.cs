@@ -21,6 +21,7 @@ public class PlayerMove : MonoBehaviour
         
         // float h = joy.Horizontal;
         // float v = joy.Vertical;
+        
         if (h != 0.0f || v != 0.0f)
         {
             Vector3 dir = h * Vector3.right + v* Vector3.forward;

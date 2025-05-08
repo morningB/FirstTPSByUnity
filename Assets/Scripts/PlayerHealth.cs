@@ -67,11 +67,11 @@ public class PlayerHealth : MonoBehaviour
     {
         if(bDamage)
         {
-            imgDamage.color = new Color(1,0,0,1);
+            imgDamage.color = new Color(1,0,0,1); // 빨간 화면 나옴
         }
         else
         {
-            imgDamage.color = Color.Lerp(imgDamage.color, Color.clear, 5 * Time.deltaTime);
+            imgDamage.color = Color.Lerp(imgDamage.color, Color.clear, 5 * Time.deltaTime); // 다시 원래대로
         }
         bDamage = false;
     }
